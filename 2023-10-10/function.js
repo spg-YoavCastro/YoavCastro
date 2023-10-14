@@ -1,16 +1,11 @@
 "use strict";
-function f() {
-    if (Math.random() - 0.5 < 0) {
+function error() {
+    if (Math.random()*10 - 0.5 < 5) {
         throw new Error("Fehler");
+    }
+    else{
+        return("Erfolg!");
     }
 }
 
-for (let i = 0; i < 15; i++) {
-    console.log(`I ist momentan ${i}`);
-    try {
-        f();
-        console.log("erfolg");
-    } catch (e) {
-        console.log("fehler", e.message);
-    }
-}
+
