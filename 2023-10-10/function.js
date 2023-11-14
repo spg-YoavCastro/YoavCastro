@@ -7,5 +7,5 @@ function error() {
         return("Erfolg!");
     }
 }
-
+console.log(error());
 
