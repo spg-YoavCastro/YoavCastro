@@ -365,3 +365,13 @@ h6 {
     border-radius: 0.2em;
     background-color: #859900;
 }
+/*.VersteckDichText {                        //Ich habe hier versucht das Hovern richtig auszuführen, hat nicht geklappt
+    display: none;
+}
+    
+.hoverbuttonbutton:hover + .push_untertext {
+    display: block;
+    color: red;
+}
+*/
+
