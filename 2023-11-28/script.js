@@ -59,7 +59,7 @@ const button_reduce = document.getElementById("button_reduce");
 button_reduce.addEventListener("click", reduce);
 button_reduce.addEventListener("mouseover", reduce_untertext);
 
-function output(i1){
+function ausgabe(i1){
     document.getElementById("output").innerHTML = i1;
 }
 function untertext(text){
@@ -71,7 +71,7 @@ function push() {
     const i2 = eval(input2.value);
     i1.push(i2);
     console.log(i1);
-    output(i1);
+    ausgabe(i1);
 }
 function push_untertext(){
     untertext("</br>Durch Push wird Array 2 mit Array 1 zusammengefügt");
@@ -80,7 +80,7 @@ function indexof() {
     const i1 = eval(input1.value);
     const i2 = eval(input2.value);
     const result = i1.indexOf(i2); 
-    output(result);
+    ausgabe(result);
     console.log(result);
 }
 function indexof_untertext(){
@@ -90,7 +90,7 @@ function includes() {
     const i1 = eval(input1.value);
     const i2 = eval(input2.value);
     const result = i1.includes(i2);
-    output(result);
+    ausgabe(result);
     console.log(result);
 }
 function includes_untertext(){
@@ -100,7 +100,7 @@ function slice() {
     const i1 = eval(input1.value);
     const i2 = eval(input2.value);
     const result = i1.slice(i2);
-    output(result);
+    ausgabe(result);
     console.log(result);
 }
 function slice_untertext(){
@@ -111,7 +111,7 @@ function splice() {
     const i2 = eval(input2.value);
     const i3 = eval(input3.value);
     const result = i1.splice(i2, i3);
-    output(result);
+    ausgabe(result);
     console.log(result);
 }
 function splice_untertext(){
@@ -122,7 +122,7 @@ function of() {
     const i2 = eval(input2.value);
     const i3 = eval(input3.value);
     const result = Array.of(i1, i2, i3);
-    output(result);
+    ausgabe(result);
     console.log(result);
 }
 function of_untertext(){
@@ -135,7 +135,7 @@ function map() {
     function funktion(number){
         return number * i2;
     };
-    output(result);
+    ausgabe(result);
     console.log(result);
 }
 function map_untertext(){
@@ -148,7 +148,7 @@ function filter() {
     function filterer(zahl){
         return zahl >= i2;
     };
-    output(result);
+    ausgabe(result);
     console.log(result);
 }
 function filter_untertext(){
@@ -158,7 +158,7 @@ function split() {
     const i1 = input1.value.toString(); 
     const i2 = input2.value.toString();
     const result = i1.split(i2);
-    output(result);
+    ausgabe(result);
     console.log(result);
 }
 function split_untertext(){
@@ -168,7 +168,7 @@ function join() {
     const i1 = eval(input1.value);
     const i2 = eval(input2.value);
     const result = i1.join(i2);
-    output(result);
+    ausgabe(result);
     console.log(result);
 }
 function join_untertext(){
@@ -181,7 +181,7 @@ function some() {
     function something(somenumber){
         return somenumber > i2;
     };
-    output(result);
+    ausgabe(result);
     console.log(result);
 }
 function some_untertext(){
@@ -191,7 +191,7 @@ function reverse() {
     const i1 = eval(input1.value);
     const i2 = eval(input2.value);
     const result = i1.reverse(i2);
-    output(result);
+    ausgabe(result);
     console.log(result);
 }
 function reverse_untertext(){
@@ -202,7 +202,7 @@ function spread() {
     const i2 = eval(input2.value);
     const i3 = eval(input3.value);
     const result = [...i1, ...i2];
-    output(result);
+    ausgabe(result);
     console.log(result);
 }
 function spread_untertext(){
@@ -214,7 +214,7 @@ function reduce() {
     function reduce(total, num){
         return total - num;
     };
-    output(result);
+    ausgabe(result);
     console.log(result);
 }
 function reduce_untertext(){
