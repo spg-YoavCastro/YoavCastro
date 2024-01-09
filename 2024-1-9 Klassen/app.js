@@ -29,3 +29,4 @@ class Person{
 }
 p = new Person('Hans', 65, 1.75);
 console.log(p.bmi);
+console.log(p.gewicht);
