@@ -42,7 +42,7 @@ p1 = new Person('Hans', 65, 1.75);
 p2 = new Person('Michi', 80, 1.70);
 p3 = new Person('Sepp', 120, 2.1);
 p4 = new Person('Felix', 40, 1.2);
-console.log(p1.bmi);
+console.log("Person 1:"p1.bmi);
 console.log(p2.bmi);
 console.log(p3.bmi);
 console.log(p4.bmi);
