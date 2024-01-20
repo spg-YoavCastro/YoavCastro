@@ -4,7 +4,7 @@ class Person{
 
     #gewicht;
 
-    groesse;
+    #groesse;
 
     constructor(name, gewicht, groesse){
         this.name = name;
@@ -13,7 +13,8 @@ class Person{
 
     }
     get bmi(){
-        return this.#gewicht/(this.groesse*this.groesse);
+        return Math.round(this.#gewicht/(this.#groesse*this.#groesse)).toFixed(1);
+
     }
     
     set gewicht(gewichtPar){
@@ -23,9 +24,23 @@ class Person{
         }
         this.#gewicht = gewichtPar;
     }
+    set groesse(groessePar){
+        //groesse in m
+        if(groessePar < 0,5 || groessePar > 3){
+            throw new Error("ungültige Größe")
+        }
+        this.#groesse = groessePar;
+    }
     get gewicht(){
         return this.#gewicht;
     }
+    get groesse(){
+        return this.#groesse;
+    }
 }
-p = new Person('Hans', 65, 1.75);
-console.log(p.bmi);
+p1 = new Person('Hans', 65, 1.75), console.log( p1.bmi);
+p2 = new Person('Michi', 80, 1.70), console.log(p2.bmi);
+p3 = new Person('Sepp', 120, 2.1), console.log(p3.bmi);
+p4 = new Person('Felix', 40, 1.2), console.log(p4.bmi);
+
+
