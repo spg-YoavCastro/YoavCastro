@@ -8,11 +8,11 @@ class Person {
     #gewicht;
     #groesse;
     #geschlecht;
-    constructor(namePar, gewichtPar, groessePar, GeschlechtPar) {
+    constructor(namePar, gewichtPar, groessePar, geschlechtPar) {
         this.name = namePar;
         this.gewicht = gewichtPar;
         this.groesse = groessePar;
-        this.#geschlecht = geschlechtPar;
+        this.geschlecht = geschlechtPar;
     }
 
 
@@ -49,7 +49,7 @@ class Person {
         return this.#groesse;
     }
     set geschlecht(geschlechtPar) {
-        if (geschlechtPar !== 'Männlich' && geschlechtPar !== 'Weiblich') {
+        if (geschlechtPar !== 'm' && geschlechtPar !== 'w') {
             throw new Error('Ungültiges Geschlecht');
         }
         this.#geschlecht = geschlechtPar;
@@ -63,7 +63,6 @@ class Person {
         const nmbr = this.#gewicht / (this.#groesse * this.#groesse);
         return Math.round(nmbr * 10) / 10;
     }
-    
     toString() {
         return (
             'Name: ' +
@@ -77,3 +76,20 @@ class Person {
         );
     }
 }
+a = [
+    ['Peta', 90, 1.7, 'w'],
+    ['Lisa', 50, 3, 'w'], //Wie schaffe ich es, dass hier ein Fehler geworfen wird?
+    ['Roland', 70, 1.7, 'w'],
+    ['Hans', 80, 1.8, 'w'],
+];
+
+b = a.map((arr) => {
+    try {
+        return new Person(...arr);
+    } catch (e) {
+        console.log(e.message);
+        return null;
+    }
+}); // jetzt ist b ein Personen-Array
+b.forEach((p) => console.log(p + ''));
+
