@@ -9,24 +9,16 @@
 <body>
     <h1>BMI-Rechner</h1>
 
-    <!--Name:<input type="text" id="namePar"><br></br>
-    Geschlecht:<select id="GeschlechtPar">
-        <option value="Männlich">Männlich</option>
-        <option value="Weiblich">Weiblich</option>
+    Name:<input type="text" id="namePar"><br></br>
+    Geschlecht:<select id="geschlechtPar">
+        <option value="m">Männlich</option>
+        <option value="w">Weiblich</option>
       </select><br></br>
     Gewicht:<input type="text" id="gewichtPar"><br></br>
     Größe:<input type="text" id="groessePar"><br></br>
 
-    BMI berechnen:<input type="button" id="nmbr"><br></br>-->
-    Name: <input type="text" id="name"><br></br>
-    Geschlecht: 
-    <select id="geschlecht">
-        <option value="Männlich">Männlich</option>
-        <option value="Weiblich">Weiblich</option>
-    </select><br></br>
-    Gewicht: <input type="text" id="gewicht"><br></br>
-    Größe: <input type="text" id="groesse"><br></br>
-
-    BMI berechnen: <input type="button" onclick="" id="calculateButton" value="BMI berechnen"><br></br>
+    BMI berechnen:<input type="button" onclick="BMIOutput()" id="nmbr"><br></br>
+    <output id="output">Das BMI beträgt: </output>
+    
 </body>
 </html>

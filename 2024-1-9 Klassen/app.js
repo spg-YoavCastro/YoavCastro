@@ -20,11 +20,10 @@ class Person {
         if (typeof namePar !== 'string') {
             throw new Error('ungültiger Name');
         }
-        if (namePar.length < 3) {
+        if (namePar.length < 1) {
             throw new Error('Name zu kurz');
         }
         this.#name = namePar;
-        document.getElementById(namePar);
     }
 
     set gewicht(gewichtPar) {
@@ -33,7 +32,6 @@ class Person {
             throw new Error('ungültiges Gewicht');
         }
         this.#gewicht = gewichtPar;
-        document.getElementById(gewichtPar);
     }
     get gewicht() {
         return this.#gewicht;
@@ -43,7 +41,6 @@ class Person {
             throw new Error('ungültige Groesse');
         }
         this.#groesse = groessePar;
-        document.getElementById(groessePar);
     }
     get groesse(){
         return this.#groesse;
@@ -63,33 +60,61 @@ class Person {
         const nmbr = this.#gewicht / (this.#groesse * this.#groesse);
         return Math.round(nmbr * 10) / 10;
     }
+    get bmi_m_w(){
+        if(this.#geschlecht == 'm' && this.bmi >=20 && this.bmi <=25)
+        {
+            return "Normalbereich";
+        }
+        if(this.#geschlecht == 'm' && this.bmi > 25 )
+        {
+            return "Übergewicht";
+        }
+        if(this.#geschlecht == 'm' && this.bmi <20)
+        {
+            return "Untergewicht";
+        }
+        if(this.#geschlecht == 'w' && this.bmi >=19 && this.bmi <=24)
+        {
+            return "Normalbereich";
+        }
+        if(this.#geschlecht == 'w' && this.bmi >24)
+        {
+            return "Übergewicht";
+        }
+        if(this.#geschlecht == 'w' && this.bmi <19)
+        {
+            return "Untergewicht";
+        }
+    }
     toString() {
         return (
-            'Name: ' +
-            this.#name +
-            ' Gewicht: ' +
-            this.#gewicht +
-            ' Größe: ' +
-            this.#groesse +
             ' BMI: ' +
-            this.bmi
+            this.bmi +
+            ' BMI Bereich: ' +
+            this.bmi_m_w
         );
     }
 }
-a = [
+/*a = [
     ['Peta', 90, 1.7, 'w'],
     ['Lisa', 50, 3, 'w'], //Wie schaffe ich es, dass hier ein Fehler geworfen wird?
     ['Roland', 70, 1.7, 'w'],
     ['Hans', 80, 1.8, 'w'],
-];
+];*/
+function BMIOutput(){
 
-b = a.map((arr) => {
+    
+/*b = a.map((arr) => {
     try {
         return new Person(...arr);
     } catch (e) {
         console.log(e.message);
         return null;
     }
-}); // jetzt ist b ein Personen-Array
-b.forEach((p) => console.log(p + ''));
+});*/ // jetzt ist b ein Personen-Array
+b = new Person(document.getElementById("namePar").value,document.getElementById("gewichtPar").value,document.getElementById("groessePar").value,document.getElementById("geschlechtPar").value);
+//b.forEach((p) => console.log(p + ''));
+console.log(b.toString());
+document.getElementById("output").value = b.toString();
+}
 
