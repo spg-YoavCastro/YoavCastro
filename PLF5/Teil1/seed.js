@@ -1,20 +1,22 @@
 const { PrismaClient } = require('@prisma/client');
 const prisma = new PrismaClient();
-const { fakerDE } = require("@faker-js/faker");
-
+const { fakerDE } = require('@faker-js/faker');
 async function main() {
+    // throw new Error('XY');
     let i = 0;
-    let zoo = 5;
+    let zooCount = 5;
 
-    for (i = 0; i < zoo; z++) {
-        zoo = {
-            land: fakerDE.Land(),
-            stadt: fakerDE.Location(),
-            adresse: fakerDE.location.streetAdress(),
-            baujahr: fakerDE.date.past(),
+    for (i = 0; i < zooCount; i++) {
+        const zoo = {
+            land: fakerDE.location.country(),
+            stadt: fakerDE.location.city(),
+            adresse: fakerDE.location.streetAddress(),
+            baujahr: fakerDE.date.past().getFullYear()
         };
+        await prisma.zoo.create({ data: zoo });
     }
-    const createMany = prisma.zoo.createMany({ data: zoo });
-
+    return 'Alles ist gut';
 }
-
+main()
+    .then((rw) => console.log('seeding done: ', rw))
+    .catch((e) => console.log('Es gab Fehler', e.message));
