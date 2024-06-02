@@ -19,7 +19,7 @@ async function main() {
             baujahr: fakerDE.date.past().getFullYear(),
             abteilungen: { 
                 create: Array.from({length:fakerDE.number.int({min:minAbteilungen, max:maxAbteilungen})}).map(() => ({
-                    name: fakerDE.animal.type() + "Abteilung", 
+                    name: fakerDE.animal.type() + " Abteilung", 
                     tiere:{
                     create: Array.from({length:fakerDE.number.int({min:minTiere, max:maxTiere})}).map(() => ({
                         name: fakerDE.person.firstName(), art: fakerDE.animal.type(),
