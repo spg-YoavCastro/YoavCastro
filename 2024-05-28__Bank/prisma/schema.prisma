@@ -2,14 +2,13 @@
 // learn more about it in the docs: https://pris.ly/d/prisma-schema
 
 datasource db {
-    provider = "sqlite"
-    url      = "file:./dev.sqlite3"
+  provider = "sqlite"
+  url      = "file:./dev.sqlite3"
 }
 
 generator client {
-    provider = "prisma-client-js"
+  provider = "prisma-client-js"
 }
-
 
 model Bank {
   id       Int       @id @default(autoincrement())
@@ -21,27 +20,27 @@ model Customer {
   id        Int     @id @default(autoincrement())
   name      String
   email     String  @unique
-  account   Account @relation(fields: [accountId], references: [id])
-  accountId Int
+  account   Account []
 }
 
 model Account {
-  id          Int           @id @default(autoincrement())
-  iban        String
-  customer    Customer[]
-  bank        Bank          @relation(fields: [bankId], references: [id])
-  bankId      Int
+  id        Int           @id @default(autoincrement())
+  iban      String
+  amount    Float     
+  customer  Customer[]
+  bank      Bank          @relation(fields: [bankId], references: [id])
+  bankId    Int
   versenden Transaction[] @relation("versendenId")
   empfangen Transaction[] @relation("empfangenId")
 }
 
 model Transaction {
-  id               Int       @id @default(autoincrement())
+  id               Int      @id @default(autoincrement())
   verwendungszweck String
   date             DateTime
   amount           Float
-  fromAcct         Account  @relation("versendenId",fields: [fromAcctId], references: [id])
-  fromAcctId Int
-  toAcct           Account  @relation("empfangenId",fields: [toAcctId], references: [id])
-  toAcctId Int
+  fromAcct         Account  @relation("versendenId", fields: [fromAcctId], references: [id])
+  fromAcctId       Int
+  toAcct           Account  @relation("empfangenId", fields: [toAcctId], references: [id])
+  toAcctId         Int
 }
