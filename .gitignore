@@ -1,3 +1,6 @@
 PLF5/Teil1/prisma/dev.sqlite3
 *.db
 node_modules
+client
+.env
+.DS_Store
