@@ -1,0 +1,11 @@
+{
+  "imports": {
+    "prisma": "npm:prisma@^6.19.0",
+    "zod": "npm:zod@^4.1.12",
+    "@prisma/client": "npm:@prisma/client@^6.19.0",
+    "generated_client": "./prisma/client/client.ts"
+  },
+  "fmt": {
+    "indentWidth": 4
+  }
+}
