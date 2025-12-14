@@ -1,0 +1,26 @@
+datasource db {
+  provider = "sqlite"
+  url      = "file:./dev.db"
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model Flight {
+  id            Int         @id @default(autoincrement())
+  flightName    String
+  departureTime DateTime
+  arrivalTime   DateTime
+  departureCity String
+  arrivalCity   String
+  passengers    Passenger[]
+}
+
+model Passenger {
+  id          Int    @id @default(autoincrement())
+  name        String
+  ticketPrice Int
+  flightId    Int
+  flight      Flight @relation(fields: [flightId], references: [id])
+}
